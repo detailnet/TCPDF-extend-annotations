@@ -21,6 +21,9 @@ A new version of this library is under development at https://github.com/tecnick
 
 PHP library for generating PDF documents on-the-fly.
 
+This is a fork of tecnickcom/TCPDF to support line,polyline and ink annotation positioning.
+(PRs will be submitted to main project)
+
 ### Main Features:
 * no external libraries are required for the basic functions;
 * all standard page formats, custom page formats, custom margins and units of measure;
