@@ -8613,7 +8613,18 @@ class TCPDF {
 							break;
 						}
 						case 'ink': {
-							break;
+                            if (isset($pl['opt']['inklist']) AND is_array($pl['opt']['inklist'])) {
+                                $annots .= ' /InkList [';
+                                foreach ($pl['opt']['inklist'] as $list) {
+                                    $annots .= ' [';
+                                    foreach (is_array($list) ? $list : array() as $p) {
+                                        $annots .= sprintf('%F ', floatval($p));
+                                    }
+                                    $annots .= '] ';
+                                }
+                                $annots .= ']';
+                            }
+                            break;
 						}
 						case 'popup': {
 							break;
