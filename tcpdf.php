@@ -8568,6 +8568,13 @@ class TCPDF {
 							break;
 						}
 						case 'line': {
+                            if (isset($pl['opt']['l']) AND is_array($pl['opt']['l'])) {
+                                $annots .= ' /L [';
+                                foreach ($pl['opt']['l'] as $l) {
+                                    $annots .= sprintf('%F ', floatval($l));
+                                }
+                                $annots .= ']';
+                            }
 							break;
 						}
 						case 'square': {
