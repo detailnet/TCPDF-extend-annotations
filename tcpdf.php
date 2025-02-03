@@ -8583,10 +8583,15 @@ class TCPDF {
 						case 'circle': {
 							break;
 						}
-						case 'polygon': {
-							break;
-						}
+						case 'polygon':
 						case 'polyline': {
+                            if (isset($pl['opt']['vertices']) AND is_array($pl['opt']['vertices'])) {
+                                $annots .= ' /Vertices [';
+                                foreach ($pl['opt']['vertices'] as $v) {
+                                    $annots .= sprintf('%F ', floatval($v));
+                                }
+                                $annots .= ']';
+                            }
 							break;
 						}
 						case 'highlight': {
