@@ -8571,7 +8571,7 @@ class TCPDF {
                             if (isset($pl['opt']['l']) AND is_array($pl['opt']['l'])) {
                                 $annots .= ' /L [';
                                 foreach ($pl['opt']['l'] as $l) {
-                                    $annots .= sprintf('%F ', floatval($l));
+                                    $annots .= sprintf('%F ', floatval($l) * $this->k);
                                 }
                                 $annots .= ']';
                             }
@@ -8588,7 +8588,7 @@ class TCPDF {
                             if (isset($pl['opt']['vertices']) AND is_array($pl['opt']['vertices'])) {
                                 $annots .= ' /Vertices [';
                                 foreach ($pl['opt']['vertices'] as $v) {
-                                    $annots .= sprintf('%F ', floatval($v));
+                                    $annots .= sprintf('%F ', floatval($v) * $this->k);
                                 }
                                 $annots .= ']';
                             }
@@ -8618,7 +8618,7 @@ class TCPDF {
                                 foreach ($pl['opt']['inklist'] as $list) {
                                     $annots .= ' [';
                                     foreach (is_array($list) ? $list : array() as $p) {
-                                        $annots .= sprintf('%F ', floatval($p));
+                                        $annots .= sprintf('%F ', floatval($p) * $this->k);
                                     }
                                     $annots .= '] ';
                                 }
